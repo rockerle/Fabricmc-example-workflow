@@ -34,13 +34,13 @@ jobs:
       id: pTag
       run: |
             echo "fetched tag is"
-            echo "MIN = ${{ steps.getTag.outputs.MIN }}"
-            echo "MAJ = ${{ steps.getTag.outputs.MAJ }}"
+            echo "MIN = ${{ steps.tag.outputs.MIN }}"
+            echo "MAJ = ${{ steps.tag.outputs.MAJ }}"
     - name: Create a Release
       uses: ncipollo/release-action@v1
       with:
         artifacts: "build/libs/*.jar"
-        name: Testrelease-MC-${{ steps.getTag.outputs.MAJ }}-${{ steps.getTag.outputs.MIN }}
+        name: Testrelease-MC-${{ steps.tag.outputs.MAJ }}-${{ steps.tag.outputs.MIN }}
         tag: ${{ steps.getTag.outputs.MAJ }}
         allowUpdates: true
         replacesArtifacts: true
