@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "ts",
+  "version": "${version}",
+  "name": "workflows",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "git@github.com:rockerle/workflowFuckery.git"
+  },
+  "license": "MIT",
+  "icon": "assets/ts/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "rockerle.ts.client.TsClient"
+    ],
+    "main": [
+      "rockerle.ts.Ts"
+    ]
+  },
+  "mixins": [
+    "ts.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "fabric": "*",
+    "minecraft": "1.17"
+  }
+}
