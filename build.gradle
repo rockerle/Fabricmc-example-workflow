@@ -43,10 +43,10 @@ tasks.register('getMinorVersion') {
     try {
         def v = project.minecraft_version.split('\\.')[2]
         println v
-        return v
+//        return v
     }catch(Exception){
-        println 'No minor version so returning 0'
-        return '0'
+        println '0'
+//        return ''
     }
 }
 def targetJavaVersion = 16
