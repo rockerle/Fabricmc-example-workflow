@@ -28,8 +28,8 @@ jobs:
     - name: getTag
       id: tag
       run: |
-           echo "MAJ=$(./gradlew -q printVersion)" >> "$GITHUB_OUTPUT"
-           echo "MIN=$(./gradlew -q printVersion)" >> "$GITHUB_OUTPUT"
+           echo "MAJ=$(./gradlew -q getMajorVersion)" >> "$GITHUB_OUTPUT"
+           echo "MIN=$(./gradlew -q getMinorVersion)" >> "$GITHUB_OUTPUT"
 
     - name: Create a Release
       uses: ncipollo/release-action@v1
