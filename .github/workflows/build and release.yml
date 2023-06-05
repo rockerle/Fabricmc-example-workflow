@@ -27,15 +27,20 @@ jobs:
 
     - name: getTag
       id: tag
+      run:  |
+            echo "MAJ=$(./gradlew -q getMajorVersion)" >> "$GITHUB_OUTPUT"
+            echo "MIN=$(./gradlew -q getMinorVersion)" >> "$GITHUB_OUTPUT"
+    - name: print tag
+      id: pTag
       run: |
-           echo "MAJ=$(./gradlew -q getMajorVersion)" >> "$GITHUB_OUTPUT"
-           echo "MIN=$(./gradlew -q getMinorVersion)" >> "$GITHUB_OUTPUT"
-
+            echo "fetched tag is"
+            echo "MIN = ${{ steps.getTag.outputs.MIN }}"
+            echo "MAJ = ${{ steps.getTag.outputs.MAJ }}"
     - name: Create a Release
       uses: ncipollo/release-action@v1
       with:
         artifacts: "build/libs/*.jar"
-        name: Test-${{ steps.getTag.outputs.MAJ }}.${{ steps.getTag.outputs.MIN }}
+        name: Testrelease-MC-${{ steps.getTag.outputs.MAJ }}-${{ steps.getTag.outputs.MIN }}
         tag: ${{ steps.getTag.outputs.MAJ }}
         allowUpdates: true
         replacesArtifacts: true
