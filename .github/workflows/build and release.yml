@@ -43,5 +43,5 @@ jobs:
         name: Testrelease-MC-${{ steps.tag.outputs.MAJ }}-${{ steps.tag.outputs.MIN }}
         tag: ${{ steps.tag.outputs.MAJ }}
         allowUpdates: true
-        replacesArtifacts: true
+        replacesArtifacts: false
         removeArtifacts: false
