@@ -4,6 +4,7 @@ on: push
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -27,14 +28,15 @@ jobs:
 
     - name: getTag
       id: tag
-      run: echo "MAJ=$(./gradlew -q printVersion)" >> "$GITHUB_OUTPUT"
-            echo "MIN=$(./gradlew -q printVersion)" >> "$GITHUB_OUTPUT"
+      run: |
+           echo "MAJ=$(./gradlew -q printVersion)" >> "$GITHUB_OUTPUT"
+           echo "MIN=$(./gradlew -q printVersion)" >> "$GITHUB_OUTPUT"
 
     - name: Create a Release
         uses: ncipollo/release-action@v1
         with:
           artifacts: "build/libs/*.jar"
-          name: Test-${{ steps.tag.outputs.MAJ }}.${{steps.getTAg.outputs.MIN}}
+          name: Test-${{ steps.tag.outputs.MAJ }}.${{ steps.getTAg.outputs.MIN }}
           tag: ${{ steps.getTag.outputs.MAJ }}
           allowUpdates: true
           replacesArtifacts: true
