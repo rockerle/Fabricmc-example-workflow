@@ -36,17 +36,14 @@ processResources {
 tasks.register('getMajorVersion') {
     def s = project.minecraft_version.split('\\.')[1]
     println s
-//    return s
 }
 
 tasks.register('getMinorVersion') {
     try {
         def v = project.minecraft_version.split('\\.')[2]
         println v
-//        return v
     }catch(Exception){
         println '0'
-//        return '0'
     }
 }
 def targetJavaVersion = 16
