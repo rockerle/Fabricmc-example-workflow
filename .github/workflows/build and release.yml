@@ -30,12 +30,6 @@ jobs:
       run:  |
             echo "MAJ=$(./gradlew -q getMajorVersion)" >> "$GITHUB_OUTPUT"
             echo "MIN=$(./gradlew -q getMinorVersion)" >> "$GITHUB_OUTPUT"
-    - name: print tag
-      id: pTag
-      run: |
-            echo "fetched tag is"
-            echo "MIN = ${{ steps.tag.outputs.MIN }}"
-            echo "MAJ = ${{ steps.tag.outputs.MAJ }}"
     - name: Create a Release
       uses: ncipollo/release-action@v1
       with:
