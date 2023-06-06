@@ -41,7 +41,7 @@ jobs:
       with:
         artifacts: "build/libs/*.jar"
         name: Testrelease-MC-${{ steps.tag.outputs.MAJ }}-${{ steps.tag.outputs.MIN }}
-        tag: ${{ steps.tag.outputs.MAJ }}
+        tag: MC-${{ steps.tag.outputs.MAJ }}
         allowUpdates: true
         replacesArtifacts: false
         removeArtifacts: false
